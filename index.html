@@ -3,50 +3,773 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>The Machine Is the Reflection</title>
     <style>
-        /* Add your CSS styles here */
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+        :root {
+            --bg: #050507;
+            --bg-2: #0b0c12;
+            --ink: #f3f4f6;
+            --muted: #a1a1aa;
+            --accent: #f43b79;
+            --accent-2: #5a6bff;
+            --accent-3: #35d3d2;
+            --stroke: #1f2430;
+            --panel: rgba(12, 12, 18, 0.72);
+            --accent-grad: linear-gradient(90deg, #f43b79 0%, #5a6bff 100%);
+            --glow: 0 0 40px rgba(244, 59, 121, 0.25);
+        }
+
+        * { box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
+            font-family: "Space Grotesk", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(1200px 800px at 10% 10%, rgba(244, 59, 121, 0.16), transparent 60%),
+                radial-gradient(900px 700px at 90% 30%, rgba(90, 107, 255, 0.14), transparent 55%),
+                radial-gradient(1000px 800px at 50% 90%, rgba(53, 211, 210, 0.08), transparent 60%),
+                var(--bg);
+            min-height: 100vh;
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
+
+        .wrap { max-width: 1100px; margin: 0 auto; padding: 64px 20px 100px; }
+        .nav {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 18px 0;
         }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
+        .logo {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 28px; letter-spacing: 0.2em;
         }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        .pill {
+            font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+            border: 1px solid var(--stroke); padding: 8px 14px; border-radius: 999px;
+            color: var(--muted); background: rgba(8, 8, 12, 0.6);
+        }
+
+        .hero {
+            display: grid; gap: 32px; align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            margin-top: 32px;
+        }
+        .hero h1 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: clamp(48px, 8vw, 120px);
+            line-height: 0.9; letter-spacing: 0.05em; text-transform: uppercase;
+            margin: 0;
+            background: linear-gradient(90deg, #ffffff 0%, #ffd3df 40%, #f43b79 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero p { color: var(--muted); font-size: 16px; max-width: 520px; }
+        .hero p span { display: block; margin-top: 8px; }
+        .hero .cta {
+            display: inline-flex; gap: 12px; align-items: center;
+            padding: 14px 22px; border-radius: 999px;
+            border: 1px solid #2a2f3b; color: #fff; text-decoration: none;
+            background: var(--accent-grad);
+            box-shadow: var(--glow);
+            font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px;
+        }
+        .hero-card {
+            background: var(--panel); border: 1px solid var(--stroke);
+            border-radius: 24px; padding: 24px; position: relative; overflow: hidden;
+        }
+        .hero-card::after {
+            content: ""; position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(140deg, rgba(244, 59, 121, 0.12), transparent 40%);
+        }
+        .hero-card .stat {
+            display: grid; gap: 6px; margin-bottom: 16px;
+        }
+        .hero-card .stat strong { font-size: 22px; }
+        .hero-card .scan-line {
+            height: 2px; background: linear-gradient(90deg, transparent, #f43b79, #5a6bff, transparent);
+            animation: scan 2.8s infinite;
+        }
+        @keyframes scan {
+            0% { transform: translateX(-100%); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translateX(100%); opacity: 0; }
+        }
+
+        .section {
+            margin-top: 72px;
+        }
+        .section h2 {
+            font-family: "Bebas Neue", sans-serif; font-size: 48px; letter-spacing: 0.08em;
+            text-transform: uppercase; margin: 0 0 12px;
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .section p { color: var(--muted); margin: 0; }
+        .cta-strip {
+            margin-top: 60px;
+            border: 1px solid var(--stroke);
+            background: linear-gradient(120deg, rgba(244, 59, 121, 0.16), rgba(90, 107, 255, 0.2));
+            border-radius: 22px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .cta-strip .title {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 36px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .cta-strip .sub { color: var(--muted); max-width: 520px; }
+        .cta-strip .cta {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 12px 22px; border-radius: 999px;
+            border: 1px solid #2a2f3b; color: #fff; text-decoration: none;
+            background: #0e1220; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 11px;
+        }
+
+        .toggle {
+            display: inline-flex; gap: 8px; margin-top: 18px;
+            border: 1px solid var(--stroke); border-radius: 999px; padding: 6px;
+            background: rgba(12, 12, 18, 0.8);
+        }
+        .toggle button {
+            border: none; background: transparent; color: var(--muted);
+            padding: 8px 14px; border-radius: 999px;
+            font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; font-size: 11px;
+            cursor: pointer;
+        }
+        .toggle button.active {
+            color: #fff; background: #121826; box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .traits {
+            display: grid; gap: 20px; margin-top: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+        .trait-card {
+            background: var(--panel); border: 1px solid var(--stroke);
+            border-radius: 22px; padding: 20px; position: relative;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .trait-card:hover { transform: translateY(-4px); border-color: #2b3240; }
+        .trait-tag {
+            font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--muted);
+        }
+        .trait-title {
+            font-family: "Bebas Neue", sans-serif; font-size: 36px; margin: 8px 0 12px;
+        }
+        .trait-block { margin: 10px 0; }
+        .trait-block strong { display: block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-2); }
+        .trait-block p { margin: 4px 0 0; color: #d4d4d8; font-size: 14px; }
+
+        .grid-2 {
+            display: grid; gap: 18px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            margin-top: 22px;
+        }
+        .panel {
+            background: var(--panel); border: 1px solid var(--stroke);
+            border-radius: 20px; padding: 20px;
+        }
+        .panel h3 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 28px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 8px;
+        }
+        .panel p { margin: 0; color: var(--muted); font-size: 14px; }
+        .list {
+            margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px;
+        }
+        .list li {
+            display: flex; align-items: center; justify-content: space-between;
+            border: 1px solid var(--stroke); border-radius: 12px; padding: 10px 12px;
+            background: rgba(10, 10, 14, 0.7);
+            font-size: 13px;
+            position: relative;
+        }
+        .list li::before {
+            content: "";
+            width: 8px; height: 8px; border-radius: 999px;
+            background: var(--accent-grad);
+            margin-right: 10px;
+            display: inline-block;
+        }
+        .list strong { display: inline-flex; align-items: center; gap: 8px; }
+        .update-chip {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--muted); margin-top: 12px;
+        }
+        .update-chip::before {
+            content: "";
+            width: 8px; height: 8px; border-radius: 999px;
+            background: var(--accent-3);
+            box-shadow: 0 0 12px rgba(53, 211, 210, 0.4);
+            display: inline-block;
+        }
+        .cta-note {
+            margin-top: 12px;
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .dna-grid {
+            display: grid; gap: 18px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            margin-top: 22px;
+        }
+        .dna-card {
+            background: var(--panel); border: 1px solid var(--stroke);
+            border-radius: 20px; padding: 18px;
+        }
+        .dna-card h4 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 24px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 6px;
+        }
+        .dna-meta {
+            font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--muted); margin-bottom: 14px;
+        }
+        .dna-bar {
+            height: 8px; background: #0b0c12; border-radius: 999px; overflow: hidden;
+            border: 1px solid var(--stroke);
+        }
+        .dna-fill {
+            height: 100%;
+            background: var(--accent-grad);
+        }
+        .dna-row {
+            display: grid; gap: 8px; margin-bottom: 10px;
+        }
+        .dna-row label {
+            font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
+        }
+        .dna-specs {
+            display: grid; gap: 6px; margin-top: 10px; color: #d4d4d8; font-size: 12px;
+        }
+        .dna-controls {
+            display: grid; gap: 12px; margin-top: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+        .dna-controls select {
+            padding: 12px; background: #0a0a0a; border: 1px solid var(--stroke);
+            border-radius: 12px; color: #fff; font-weight: 700; text-transform: uppercase; font-size: 11px;
+        }
+        .dna-controls button {
+            padding: 12px 16px; border-radius: 999px; border: 1px solid #2a2f3b;
+            background: var(--accent-grad); color: #fff; font-weight: 800; letter-spacing: 0.1em;
+            text-transform: uppercase; font-size: 11px; cursor: pointer;
+        }
+        .list span { color: var(--muted); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+
+        .footer {
+            margin-top: 80px; display: flex; align-items: center; justify-content: space-between;
+            border-top: 1px solid var(--stroke); padding-top: 18px; color: var(--muted);
+            font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Website</h1>
-    </header>
-    
-    <div class="container">
-        <h2>About Us</h2>
-        <p>This is a sample website to demonstrate HTML and CSS.</p>
-        <p>You can replace this content with your own.</p>
+    <div class="wrap">
+        <div class="nav">
+            <div class="logo">MYRIDE MYEGO</div>
+            <div class="pill">Neural Sync Engine</div>
+        </div>
+
+        <section class="hero">
+            <div>
+                <h1>The Machine<br>Is the Reflection</h1>
+                <p>
+                    Your car is not transport. It is a mirror for how you think, move, and decide.
+                    The Neural Sync traits decode the bond between operator and machine — precision, soul, range, and shadow.
+                    <span>Pick a trait. Feel the tension. Watch the mirror move.</span>
+                </p>
+                <a class="cta" href="#traits">Explore Traits</a>
+            </div>
+            <div class="hero-card">
+                <div class="stat">
+                    <div class="trait-tag">Signal Strength</div>
+                    <strong>Neural Sync Report</strong>
+                </div>
+                <div class="scan-line"></div>
+                <p class="muted">
+                    The scan reads four axes of identity. Each trait tells you how you drive,
+                    what you seek, and where you can evolve.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="traits">
+            <h2>Trait Matrix</h2>
+            <p>Four signatures. One mirror. Each trait is a lens on how you move with the machine.</p>
+            <div class="traits" id="trait-grid"></div>
+        </section>
+
+        <section class="section" id="dna">
+            <h2>Featured Machine DNA</h2>
+            <p>Snapshots from the database. DNA is computed from brand traits and available specs (assumes black exterior, no mods).</p>
+            <div class="dna-controls">
+                <select id="dna-make"></select>
+                <select id="dna-model"></select>
+                <button type="button" onclick="renderSelectedDNA()">View DNA</button>
+            </div>
+            <div class="dna-grid" id="dna-grid"></div>
+        </section>
+
+        <section class="section" id="pulse">
+            <h2>Weekly Trait Pulse</h2>
+            <p>Short signals that change weekly. Keep a record, return to recalibrate.</p>
+            <div class="grid-2">
+                <div class="panel">
+                    <h3>This Week’s Focus</h3>
+                    <p>Shadow clean‑line discipline. Reduce noise. Increase intent. Choose a route with fewer stops.</p>
+                </div>
+                <div class="panel">
+                    <h3>Operator Log</h3>
+                    <p>Last scan: Unknown. Run a new scan to store your latest alignment and lock the signal.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="challenges">
+            <h2>Signature Challenges</h2>
+            <p>Each trait has a simple challenge. Try one, then return for the next.</p>
+            <div class="grid-2">
+                <div class="panel">
+                    <h3>Architect</h3>
+                    <p>Drive one stretch without touching the infotainment. All input, no distraction.</p>
+                </div>
+                <div class="panel">
+                    <h3>Soul</h3>
+                    <p>Pick a lower setting than usual and let the machine’s texture speak.</p>
+                </div>
+                <div class="panel">
+                    <h3>Voyager</h3>
+                    <p>Take the longest route home once this week. Notice the change in rhythm.</p>
+                </div>
+                <div class="panel">
+                    <h3>Shadow</h3>
+                    <p>Night drive. Minimal lighting. Keep your presence tight and deliberate.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="trending">
+            <h2>Trending Machines</h2>
+            <p>A rotating list of alignments and machines. Update weekly to keep it alive.</p>
+            <div class="update-chip">Last updated: Week 06</div>
+            <ul class="list">
+                <li><strong>Architect × Porsche 911</strong><span>Precision Dominant</span></li>
+                <li><strong>Soul × Mazda MX‑5</strong><span>Analog High</span></li>
+                <li><strong>Voyager × Land Rover Defender</strong><span>Range Focus</span></li>
+                <li><strong>Shadow × BMW M4</strong><span>Stealth Bias</span></li>
+                <li><strong>Architect × Tesla Model S</strong><span>Signal Clean</span></li>
+            </ul>
+        </section>
+
+        <section class="section" id="mirror">
+            <h2>Observations on the Mirror</h2>
+            <p>Two tensions define the matrix. They reveal where the operator lives — and where the machine pulls.</p>
+            <div class="grid-2">
+                <div class="panel">
+                    <h3>Architect vs. Soul</h3>
+                    <p>
+                        The classic tension between Digital and Analog. One wants to solve the machine like a math problem;
+                        the other wants to dance with it like a partner.
+                    </p>
+                </div>
+                <div class="panel">
+                    <h3>Voyager vs. Shadow</h3>
+                    <p>
+                        Expansiveness versus Introspection. The Voyager wants to consume the world; the Shadow wants to move
+                        through it without leaving a trace.
+                    </p>
+                </div>
+                <div class="panel">
+                    <h3>The Glitch in the Challenge</h3>
+                    <p>
+                        The challenges are controlled reboots: forcing an Architect to be messy breaks analysis paralysis;
+                        forcing a Shadow to be seen is an exercise in vulnerability.
+                    </p>
+                </div>
+                <div class="panel">
+                    <h3>Note on Self‑Perception</h3>
+                    <p>
+                        Most people believe they are the Soul, but their browsing history and setup logs usually reveal them
+                        to be an Architect.
+                    </p>
+                </div>
+            </div>
+            <div class="cta-strip" style="margin-top: 26px;">
+                <div>
+                    <div class="title">Which Signature Are You?</div>
+                    <div class="sub">Or do you want a Hybrid signature for those who don’t fit a single lens?</div>
+                </div>
+                <a class="cta" href="https://cars.myridemyego.com" target="_blank" rel="noopener">Build Your Hybrid</a>
+            </div>
+        </section>
+
+        <div class="cta-strip">
+            <div>
+                <div class="title">Start Your Scan</div>
+                <div class="sub">Run the full Neural Sync and generate your shareable report.</div>
+                <div class="cta-note">The machine is the reflection.</div>
+            </div>
+            <a class="cta" href="https://cars.myridemyego.com" target="_blank" rel="noopener">Go to Cars</a>
+        </div>
+
+        <div class="footer">
+            <div>#MYRIDEMYEGO</div>
+            <a href="https://cars.myridemyego.com" style="color: inherit; text-decoration: none;">CARS.MYRIDEMYEGO.COM</a>
+        </div>
     </div>
 
-    <footer>
-        <p>&copy; 2024 My Website. All rights reserved.</p>
-    </footer>
+    <script>
+        const traits = {
+            Architect: {
+                title: "PRECISION UNIT",
+                meaning: "You optimize systems and crave control. You want the car to respond exactly as imagined.",
+                tells: "You chase clean inputs, repeatable lines, and data that validates intuition.",
+                challenge: "Let one drive be messy on purpose. You might find a new edge."
+            },
+            Soul: {
+                title: "ANALOG OUTLAW",
+                meaning: "You want the machine to feel alive. Mechanical feedback is your language.",
+                tells: "You prefer engine note, raw textures, and the heat of the moment.",
+                challenge: "Dial back one setting and see if purity beats power."
+            },
+            Voyager: {
+                title: "NOMADIC CORE",
+                meaning: "You chase atmosphere and long‑range flow. The journey is the point.",
+                tells: "You value comfort, rhythm, and a car that fades into the horizon.",
+                challenge: "Take the shortest route once. See what still moves you."
+            },
+            Shadow: {
+                title: "VOID SPECTER",
+                meaning: "You move with intention and discretion. Presence is a controlled weapon.",
+                tells: "You like stealthy silhouettes, dark palettes, and minimal noise.",
+                challenge: "Let the machine be seen for one night."
+            }
+        };
+
+        function renderTraits() {
+            const grid = document.getElementById('trait-grid');
+            const set = traits;
+            grid.innerHTML = Object.keys(set).map((key) => {
+                const trait = set[key];
+                return `
+                    <article class="trait-card">
+                        <div class="trait-tag">${key.toUpperCase()}</div>
+                        <div class="trait-title">${trait.title}</div>
+                        <div class="trait-block">
+                            <strong>Meaning</strong>
+                            <p>${trait.meaning}</p>
+                        </div>
+                        <div class="trait-block">
+                            <strong>Tells</strong>
+                            <p>${trait.tells}</p>
+                        </div>
+                        <div class="trait-block">
+                            <strong>Challenge</strong>
+                            <p>${trait.challenge}</p>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        renderTraits();
+
+        const featuredModels = [
+            { make: "Volkswagen", model: "Golf R" },
+            { make: "Volkswagen", model: "Golf GTI" },
+            { make: "Hyundai", model: "Ioniq 5 N" },
+            { make: "Kia", model: "EV6 GT" },
+            { make: "Ferrari", model: "F8 Tributo" },
+            { make: "Lamborghini", model: "Huracan STO" }
+        ];
+
+        const baseMachineDNA = { Architect: 30, Soul: 25, Voyager: 30, Shadow: 30 };
+        let carsData = null;
+        let machinesData = null;
+
+        function findCaseInsensitiveKey(obj, target) {
+            if (!obj || !target) return null;
+            const keys = Object.keys(obj);
+            return keys.find(k => k.toLowerCase() === target.toLowerCase()) || null;
+        }
+
+        function parsePowerHp(value) {
+            if (!value) return null;
+            const text = String(value).toLowerCase();
+            const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+            if (Number.isNaN(num)) return null;
+            if (text.includes('kw')) return Math.round(num * 1.341);
+            if (text.includes('ps')) return Math.round(num * 0.986);
+            return Math.round(num);
+        }
+
+        function parseZeroToSixty(value) {
+            if (!value) return null;
+            const text = String(value).toLowerCase();
+            const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+            if (Number.isNaN(num)) return null;
+            return num;
+        }
+
+        function computeSpecBoosts(entry) {
+            if (!entry) return null;
+            const boost = { Architect: 0, Soul: 0, Voyager: 0, Shadow: 0 };
+            const powerHp = parsePowerHp(entry.power);
+            const accel = parseZeroToSixty(entry.zero_to_sixty);
+            const drivetrain = (entry.drivetrain || "").toLowerCase();
+            const range = entry.range ? String(entry.range) : "";
+
+            if (powerHp !== null) {
+                if (powerHp >= 700) { boost.Architect += 15; boost.Shadow += 15; }
+                else if (powerHp >= 500) { boost.Architect += 10; boost.Shadow += 12; }
+                else if (powerHp >= 350) { boost.Architect += 8; boost.Shadow += 8; }
+                else if (powerHp >= 250) { boost.Architect += 4; boost.Shadow += 4; }
+                else { boost.Architect += 2; boost.Shadow += 2; }
+            }
+
+            if (accel !== null) {
+                if (accel <= 3.0) { boost.Shadow += 15; boost.Architect += 10; }
+                else if (accel <= 4.0) { boost.Shadow += 10; boost.Architect += 8; }
+                else if (accel <= 5.0) { boost.Shadow += 6; boost.Architect += 6; }
+                else if (accel <= 6.5) { boost.Shadow += 3; boost.Architect += 3; }
+            }
+
+            if (drivetrain.includes('awd')) { boost.Architect += 6; boost.Voyager += 4; }
+            else if (drivetrain.includes('rwd')) { boost.Soul += 6; boost.Shadow += 4; }
+            else if (drivetrain.includes('fwd')) { boost.Architect += 4; boost.Voyager += 4; }
+
+            if (range) { boost.Voyager += 8; boost.Architect += 4; }
+
+            return boost;
+        }
+
+        function applyBrandDNA(dna, make, machines) {
+            const brandKey = findCaseInsensitiveKey(machines.brands, make);
+            if (!brandKey) return;
+            const brandBoost = machines.brands[brandKey];
+            Object.keys(brandBoost).forEach(trait => {
+                dna[trait] = (dna[trait] || 0) + (brandBoost[trait] || 0);
+            });
+        }
+
+        function applyBodyTypeDNA(dna, body, machines) {
+            if (!body) return;
+            const bodyKey = body;
+            const boost = machines.bodyTypes?.[bodyKey];
+            if (!boost) return;
+            Object.keys(boost).forEach(trait => {
+                dna[trait] = (dna[trait] || 0) + (boost[trait] || 0);
+            });
+        }
+
+        function applyTransmissionDNA(dna, trans, machines) {
+            const transMap = { manual: 'manual', auto: 'dual_clutch', ev: 'single_speed' };
+            const transKey = transMap[trans];
+            const boost = machines.transmissions?.[transKey];
+            if (!boost) return;
+            Object.keys(boost).forEach(trait => {
+                dna[trait] = (dna[trait] || 0) + (boost[trait] || 0);
+            });
+        }
+
+        function applyColorDNA(dna, color, machines) {
+            const colorKey = findCaseInsensitiveKey(machines.colors, color);
+            if (!colorKey) return;
+            const boost = machines.colors[colorKey];
+            Object.keys(boost).forEach(trait => {
+                dna[trait] = (dna[trait] || 0) + (boost[trait] || 0);
+            });
+        }
+
+        function computeMachineDNA(spec, machines) {
+            const dna = { ...baseMachineDNA };
+            applyBrandDNA(dna, spec.make, machines);
+            applyColorDNA(dna, spec.color || "black", machines);
+            applyBodyTypeDNA(dna, spec.body, machines);
+            applyTransmissionDNA(dna, spec.trans, machines);
+            const specBoost = computeSpecBoosts(spec.entry);
+            if (specBoost) {
+                Object.keys(dna).forEach(k => { dna[k] += specBoost[k] || 0; });
+            }
+            const sum = Object.values(dna).reduce((a, b) => a + b, 0);
+            if (sum > 0) {
+                const scale = 200 / sum;
+                Object.keys(dna).forEach(k => { dna[k] = Math.max(0, Math.min(100, Math.round(dna[k] * scale))); });
+            }
+            return dna;
+        }
+
+        function getSpecEntry(cars, make, model) {
+            const specsDb = cars.specs || {};
+            const makeKey = findCaseInsensitiveKey(specsDb, make);
+            const makeSpecs = makeKey ? specsDb[makeKey] : {};
+            const modelKey = findCaseInsensitiveKey(makeSpecs, model);
+            return modelKey ? makeSpecs[modelKey] : null;
+        }
+
+        function buildDNACard(make, model, entry, dna) {
+            const specLines = [];
+            if (entry?.power) specLines.push(`Power: ${entry.power}`);
+            if (entry?.zero_to_sixty) specLines.push(`0–60: ${entry.zero_to_sixty}`);
+            if (entry?.drivetrain) specLines.push(`Drivetrain: ${entry.drivetrain}`);
+            if (entry?.range) specLines.push(`Range: ${entry.range}`);
+            if (!specLines.length) specLines.push("Spec data not available.");
+
+            const traitOrder = Object.keys(dna).sort((a, b) => dna[b] - dna[a]);
+            const top = traitOrder[0];
+            const second = traitOrder[1];
+            const traitPhrases = {
+                Architect: "precision, control, and repeatable inputs",
+                Soul: "mechanical feel, feedback, and emotion",
+                Voyager: "range, comfort, and long‑form flow",
+                Shadow: "presence, stealth, and deliberate power"
+            };
+            const cues = [];
+            const powerHp = parsePowerHp(entry?.power);
+            const accel = parseZeroToSixty(entry?.zero_to_sixty);
+            const drivetrain = (entry?.drivetrain || "").toLowerCase();
+            const body = (entry?.body || "").toLowerCase();
+            const trans = (entry?.trans || "").toLowerCase();
+
+            if (powerHp && powerHp >= 500) cues.push("high power signals Shadow + Architect bias");
+            if (accel && accel <= 4.0) cues.push("rapid 0–60 favors Shadow + Architect");
+            if (drivetrain.includes("awd")) cues.push("AWD stability leans Architect + Voyager");
+            if (drivetrain.includes("rwd")) cues.push("RWD balance leans Soul + Shadow");
+            if (body.includes("suv") || body.includes("truck")) cues.push("utility body type leans Voyager");
+            if (trans.includes("manual")) cues.push("manual control leans Soul");
+            if (trans.includes("ev")) cues.push("single‑speed delivery leans Architect + Voyager");
+
+            const desc = [
+                `Primary vector: ${top}. Secondary vector: ${second}.`,
+                `Dominant signal tracks ${traitPhrases[top]}${second ? `; secondary tracks ${traitPhrases[second]}.` : "."}`,
+                cues.length ? `Spec drivers: ${cues.slice(0, 2).join("; ")}.` : "Spec drivers are neutral across the matrix."
+            ].join(" ");
+
+            const rows = Object.keys(dna).map(trait => `
+                <div class="dna-row">
+                    <label>${trait}</label>
+                    <div class="dna-bar"><div class="dna-fill" style="width:${dna[trait]}%"></div></div>
+                </div>
+            `).join('');
+
+            return `
+                <div class="dna-card">
+                    <h4>${model}</h4>
+                    <div class="dna-meta">${make} // ${entry?.body || '—'} // ${entry?.trans || '—'}</div>
+                    ${rows}
+                    <div class="dna-specs">${desc}</div>
+                    <div class="dna-specs">${specLines.map(line => `<div>${line}</div>`).join('')}</div>
+                </div>
+            `;
+        }
+
+        async function renderFeaturedDNA() {
+            const grid = document.getElementById('dna-grid');
+            if (!grid) return;
+            try {
+                if (!carsData || !machinesData) {
+                    const [carRes, machinesRes] = await Promise.all([
+                        fetch('car-data.json'),
+                        fetch('machines.json')
+                    ]);
+                    carsData = await carRes.json();
+                    machinesData = await machinesRes.json();
+                }
+
+                const cards = featuredModels.map(item => {
+                    const entry = getSpecEntry(carsData, item.make, item.model);
+                    const spec = {
+                        make: item.make,
+                        model: item.model,
+                        body: entry?.body || "",
+                        trans: entry?.trans || "",
+                        color: "black",
+                        entry
+                    };
+                    const dna = computeMachineDNA(spec, machinesData);
+                    return buildDNACard(item.make, item.model, entry, dna);
+                }).join('');
+
+                grid.innerHTML = cards;
+            } catch (err) {
+                console.error(err);
+                grid.innerHTML = `<div class="panel">Unable to load DNA data. Serve this file via a local server.</div>`;
+            }
+        }
+
+        async function initDNAControls() {
+            const makeSelect = document.getElementById('dna-make');
+            const modelSelect = document.getElementById('dna-model');
+            if (!makeSelect || !modelSelect) return;
+
+            if (!carsData) {
+                const carRes = await fetch('car-data.json');
+                carsData = await carRes.json();
+            }
+            const makes = Object.keys(carsData.database || {}).sort();
+            makeSelect.innerHTML = makes.map(m => `<option value="${m}">${m.toUpperCase()}</option>`).join('');
+            makeSelect.value = featuredModels[0].make;
+            updateModelOptions();
+
+            makeSelect.addEventListener('change', updateModelOptions);
+
+            function updateModelOptions() {
+                const make = makeSelect.value;
+                const models = (carsData.database?.[make] || []).slice(0, 50);
+                modelSelect.innerHTML = models.map(m => `<option value="${m}">${m.toUpperCase()}</option>`).join('');
+                modelSelect.value = models[0] || "";
+            }
+        }
+
+        async function renderSelectedDNA() {
+            const grid = document.getElementById('dna-grid');
+            const makeSelect = document.getElementById('dna-make');
+            const modelSelect = document.getElementById('dna-model');
+            if (!grid || !makeSelect || !modelSelect) return;
+            try {
+                if (!carsData || !machinesData) {
+                    const [carRes, machinesRes] = await Promise.all([
+                        fetch('car-data.json'),
+                        fetch('machines.json')
+                    ]);
+                    carsData = await carRes.json();
+                    machinesData = await machinesRes.json();
+                }
+                const make = makeSelect.value;
+                const model = modelSelect.value;
+                const entry = getSpecEntry(carsData, make, model);
+                const spec = {
+                    make,
+                    model,
+                    body: entry?.body || "",
+                    trans: entry?.trans || "",
+                    color: "black",
+                    entry
+                };
+                const dna = computeMachineDNA(spec, machinesData);
+                grid.innerHTML = buildDNACard(make, model, entry, dna);
+            } catch (err) {
+                console.error(err);
+                grid.innerHTML = `<div class="panel">Unable to load DNA data. Serve this file via a local server.</div>`;
+            }
+        }
+
+        renderFeaturedDNA();
+        initDNAControls();
+    </script>
 </body>
 </html>
