@@ -1,0 +1,882 @@
+{
+  "years": [2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2000, 1995, 1990, 1985, 1980],
+  "database": {
+    "Porsche": ["911 GT3 RS", "911 Turbo S", "911 Carrera", "718 Cayman GT4", "718 Boxster", "Taycan Turbo S", "Taycan 4S", "Macan GTS", "Cayenne Turbo", "Panamera Turbo"],
+    "Ferrari": ["SF90 Stradale", "F8 Tributo", "296 GTB", "Roma", "Portofino M", "812 Superfast", "488 Pista", "F12tdf", "LaFerrari"],
+    "Lamborghini": ["Revuelto", "Huracan STO", "Huracan Tecnica", "Urus Performante", "Aventador SVJ", "Gallardo"],
+    "McLaren": ["765LT", "720S", "Artura", "GT", "P1", "Senna"],
+    "Aston Martin": ["Vantage", "DB12", "DBX707", "Valkyrie", "DBS Superleggera"],
+    "Bugatti": ["Chiron Super Sport", "Veyron"],
+    "Koenigsegg": ["Jesko", "Gemera", "Regera", "Agera RS"],
+    "Pagani": ["Huayra R", "Zonda"],
+    "BMW": ["M2 Competition", "M3 Competition", "M4 CSL", "M5 CS", "M8 Competition", "X5 M", "i4 M50", "iX M60", "M440i", "330i"],
+    "Audi": ["RS3", "RS6 Avant", "RS7", "R8 V10 Performance", "RS E-Tron GT", "SQ5", "S3", "A4", "Q8"],
+    "Mercedes-AMG": ["C63 S", "E63 S", "S63 E-Performance", "GT Black Series", "GT R", "G63", "SL63", "A45 S", "GLE 63", "CLA 45"],
+    "Volkswagen": ["Golf GTI", "Golf R", "Virtus GT", "Tiguan R-Line", "ID.4 GTX", "ID.3", "Jetta GLI", "Polo GTI", "Arteon R"],
+    "Skoda": ["Octavia RS", "Kodiaq RS", "Slavia 1.5 TSI", "Kushaq Monte Carlo", "Superb L&K", "Enyaq RS", "Enyaq iV"],
+    "Hyundai": ["Ioniq 5 N", "Elantra N", "i30 N", "i20 N Line", "Verna Turbo", "Creta N-Line", "Tucson", "Tucson N-Line", "Palisade", "Kona N"],
+    "Kia": ["EV6 GT", "EV6 GT Line AWD", "Stinger GT", "K5 GT", "Seltos X-Line", "EV9 GT-Line", "Sportage GT", "Carens", "Syros", "Carnival"],
+    "Renault": ["Megane R.S.", "Clio R.S.", "Duster Turbo", "Kiger Turbo", "Arkana RS-Line", "Austral", "Alpine A110"],
+    "Suzuki": ["Swift Sport", "Jimny 5-Door", "Grand Vitara Turbo", "Fronx Turbo", "Ignis Sport", "Hayabusa Edition", "S-Cross"],
+    "Maruti Suzuki": ["Swift", "Baleno", "Ciaz", "Ertiga", "Brezza", "Grand Vitara"],
+    "Tata": ["Nexon EV Max", "Harrier Dark Edition", "Safari Red Dark", "Punch.ev", "Altroz iTurbo", "Curvv EV", "Tiago EV", "Nexon"],
+    "Mahindra": ["XUV700 AX7L", "Scorpio-N Z8L", "Thar Roxx", "XEV 7e", "BE 05", "Bolero Neo", "XUV400 EV", "Scorpio Classic"],
+    "Toyota": ["GR Supra", "GR Corolla", "GR86", "Land Cruiser 300", "Fortuner GR-S", "Hilux GR", "Camry", "RAV4 Prime", "Prius", "Corolla Cross"],
+    "Nissan": ["GT-R Nismo", "Z Performance", "Skyline R34 GTR", "Magnite Kuro", "Ariya Nismo", "370Z", "Leaf", "Qashqai"],
+    "Honda": ["Civic Type R", "NSX Type S", "S2000", "City VTEC", "Elevate", "Accord", "CR-V", "HR-V", "e:Ny1"],
+    "Tesla": ["Model S Plaid", "Model S", "Model 3 Performance", "Model 3", "Model X Plaid", "Model X", "Model Y Performance", "Model Y", "Roadster", "Cybertruck"],
+    "Rivian": ["R1T", "R1S"],
+    "Lucid": ["Air Sapphire", "Air Dream Edition"],
+    "Ford": ["Mustang Dark Horse", "Mustang Shelby GT500", "Mustang Mach-E GT", "F-150 Raptor R", "F-150 Lightning", "Focus RS", "Bronco", "Ranger Raptor"],
+    "Chevrolet": ["Corvette Z06", "Corvette E-Ray", "Corvette Stingray", "Camaro ZL1 1LE", "Camaro SS", "Blazer EV SS"],
+    "Dodge": ["Challenger Demon 170", "Charger Hellcat Redeye", "Viper ACR"],
+    "Jeep": ["Grand Cherokee Trackhawk", "Wrangler 392", "Gladiator Mojave"],
+    "Land Rover": ["Defender 110", "Range Rover Sport SV", "Range Rover Velar", "Discovery"],
+    "Lexus": ["LC 500", "IS 500 F Sport", "RC F", "LFA", "NX 450h+", "RZ 450e"],
+    "Mazda": ["MX-5 Miata", "RX-7 FD", "RX-8", "CX-5", "CX-90", "3 Turbo"],
+    "Subaru": ["WRX STI", "BRZ", "Forester Wilderness", "Crosstrek"],
+    "Mitsubishi": ["Lancer Evolution X", "3000GT VR-4", "Outlander PHEV"],
+    "Alfa Romeo": ["Giulia Quadrifoglio", "Stelvio Quadrifoglio", "4C"],
+    "Maserati": ["MC20", "Ghibli Trofeo", "Levante Trofeo", "GranTurismo"],
+    "Bentley": ["Continental GT Speed", "Bentayga Speed", "Flying Spur"],
+    "Rolls-Royce": ["Phantom", "Ghost", "Cullinan", "Spectre"],
+    "Lotus": ["Emira", "Evija", "Elise", "Exige"],
+    "Genesis": ["G70 3.3T", "GV70 Sport", "GV80", "Electrified G80"],
+    "Volvo": ["S60 T8 Polestar", "V60 T8", "XC90 Recharge", "EX90", "C40 Recharge"],
+    "Polestar": ["Polestar 2", "Polestar 3", "Polestar 4"],
+    "Mini": ["Cooper S", "JCW GP", "Countryman JCW"],
+    "Fiat": ["500 Abarth", "124 Spider Abarth"],
+    "MG": ["Hector", "Astor", "ZS EV", "Comet EV", "Gloster"]
+  },
+  "specs": {
+    "Ferrari": {
+      "SF90 Stradale": {
+        "body": "coupe",
+        "trans": "auto",
+        "performance": true,
+        "engine": "4.0L V8 Twin-Turbo + 3 Electric Motors",
+        "power": "986 hp",
+        "drivetrain": "AWD",
+        "zero_to_sixty": "2.5 s"
+      },
+      "F8 Tributo": {
+        "body": "coupe",
+        "trans": "auto",
+        "performance": true,
+        "engine": "3.9L V8 Twin-Turbo",
+        "power": "710 hp",
+        "zero_to_sixty": "2.9 s"
+      }
+    },
+    "Lamborghini": {
+      "Revuelto": {
+        "body": "coupe",
+        "trans": "auto",
+        "performance": true,
+        "engine": "6.5L V12 + Hybrid",
+        "power": "1,001 hp",
+        "zero_to_sixty": "2.5 s"
+      },
+      "Huracan STO": {
+        "body": "coupe",
+        "trans": "auto",
+        "performance": true,
+        "engine": "5.2L V10",
+        "power": "631 hp",
+        "drivetrain": "RWD",
+        "zero_to_sixty": "3.0 s"
+      }
+    },
+    "McLaren": {
+      "765LT": {
+        "body": "coupe",
+        "trans": "auto",
+        "performance": true,
+        "engine": "4.0L V8 Twin-Turbo",
+        "power": "755 hp",
+        "zero_to_sixty": "2.7 s"
+      }
+    },
+    "Volkswagen": {
+      "Golf GTI": {
+        "body": "hatch",
+        "performance": true,
+        "power": "241 hp",
+        "drivetrain": "FWD",
+        "trans": "auto"
+      },
+      "Golf R": {
+        "body": "hatch",
+        "performance": true,
+        "power": "328 hp",
+        "drivetrain": "AWD",
+        "trans": "auto"
+      },
+      "Jetta GLI": {
+        "body": "sedan",
+        "performance": true,
+        "power": "228 hp",
+        "drivetrain": "FWD"
+      },
+      "Tiguan R-Line": {
+        "body": "suv",
+        "performance": false,
+        "engine": "1984 cc Turbocharged",
+        "power": "201 bhp",
+        "torque": "320 Nm",
+        "trans": "auto"
+      },
+      "ID.4 GTX": {
+        "body": "suv",
+        "trans": "ev",
+        "performance": true,
+        "power": "220 kW (299 PS)",
+        "drivetrain": "Dual Motor AWD",
+        "zero_to_sixty": "0-100 km/h 6.2 s",
+        "range": "Up to 480 km (WLTP)"
+      },
+      "Virtus GT": {
+        "body": "sedan",
+        "performance": true,
+        "engine": "1498 cc Turbocharged",
+        "power": "148 bhp",
+        "torque": "250 Nm",
+        "trans": "auto",
+        "drivetrain": "FWD",
+        "zero_to_sixty": "0-100 km/h 9.27 s (claimed)",
+        "range": "883 km"
+      }
+    },
+    "Skoda": {
+      "Octavia RS": {
+        "body": "hatch",
+        "performance": true,
+        "power": "195 kW (265 hp)"
+      },
+      "Kodiaq RS": {
+        "body": "suv",
+        "performance": true,
+        "power": "195 kW (265 hp)"
+      },
+      "Slavia 1.5 TSI": {
+        "body": "sedan",
+        "performance": true,
+        "engine": "1498 cc Turbocharged",
+        "power": "148 bhp",
+        "torque": "250 Nm",
+        "trans": "auto",
+        "drivetrain": "FWD",
+        "range": "871 km"
+      },
+      "Enyaq RS": {
+        "body": "suv",
+        "trans": "ev",
+        "performance": true,
+        "power": "250 kW",
+        "zero_to_sixty": "0-100 km/h 5.4 s",
+        "range": "522–562 km (WLTP)"
+      }
+    },
+    "Hyundai": {
+      "Ioniq 5 N": {
+        "body": "suv",
+        "trans": "ev",
+        "performance": true,
+        "power": "448 kW (609 PS)",
+        "zero_to_sixty": "0-100 km/h 3.4 s (Boost)"
+      },
+      "Elantra N": {
+        "body": "sedan",
+        "performance": true,
+        "power": "276 hp"
+      },
+      "i30 N": {
+        "body": "hatch",
+        "performance": true,
+        "power": "280 PS"
+      },
+      "i20 N Line": {
+        "body": "hatch",
+        "performance": true,
+        "engine": "998 cc Turbocharged",
+        "power": "118 bhp",
+        "torque": "172 Nm",
+        "trans": "manual/auto",
+        "drivetrain": "FWD"
+      },
+      "Verna Turbo": {
+        "body": "sedan",
+        "performance": true,
+        "engine": "1482 cc Turbocharged",
+        "power": "158 bhp",
+        "torque": "253 Nm",
+        "trans": "auto",
+        "drivetrain": "FWD",
+        "zero_to_sixty": "0-100 km/h 8.95 s (claimed)",
+        "range": "927 km"
+      },
+      "Creta N-Line": {
+        "body": "suv",
+        "performance": true,
+        "engine": "1482 cc Turbocharged",
+        "power": "158 bhp",
+        "torque": "253 Nm",
+        "trans": "auto",
+        "drivetrain": "FWD"
+      },
+      "Tucson": {
+        "body": "suv",
+        "performance": false,
+        "engine": "1997 cc diesel / 1999 cc petrol",
+        "power": "154-184 bhp",
+        "trans": "auto"
+      },
+      "Tucson N-Line": {
+        "body": "suv",
+        "performance": true,
+        "power": "110 kW (150 PS)"
+      },
+      "Palisade": {
+        "body": "suv",
+        "performance": false,
+        "power": "291 hp"
+      }
+    },
+    "Kia": {
+      "EV6 GT": {
+        "body": "suv",
+        "trans": "ev",
+        "performance": true,
+        "power": "576 hp",
+        "zero_to_sixty": "0-60 mph 3.4 s"
+      },
+      "EV6 GT Line AWD": {
+        "body": "suv",
+        "trans": "ev",
+        "performance": true,
+        "engine": "77.4 kWh battery",
+        "power": "321 bhp",
+        "torque": "605 Nm",
+        "zero_to_sixty": "0-100 km/h 5.2 s (claimed)",
+        "range": "708 km",
+        "drivetrain": "AWD"
+      },
+      "Carens": {
+        "body": "suv",
+        "performance": false,
+        "engine": "1482 cc Turbocharged",
+        "power": "158 bhp",
+        "torque": "253 Nm",
+        "trans": "auto",
+        "drivetrain": "FWD",
+        "zero_to_sixty": "0-100 km/h 10.42 s (claimed)"
+      },
+      "Seltos X-Line": {
+        "body": "suv",
+        "performance": false,
+        "engine": "1482 cc Turbocharged",
+        "power": "158 bhp",
+        "torque": "253 Nm",
+        "trans": "auto"
+      },
+      "EV9 GT-Line": {
+        "body": "suv",
+        "trans": "ev",
+        "performance": true,
+        "power": "379 hp"
+      },
+      "Stinger GT": {
+        "body": "sedan",
+        "performance": true,
+        "power": "365 hp"
+      }
+    },
+    "Renault": {
+      "Megane R.S.": { 
+        "body": "hatch", 
+        "performance": true,
+        "power": "300 hp",
+        "drivetrain": "FWD"
+      },
+      "Clio R.S.": { 
+        "body": "hatch", 
+        "performance": true,
+        "power": "220 hp"
+      },
+      "Duster Turbo": {
+        "body": "suv",
+        "performance": false,
+        "engine": "1330 cc Turbocharged",
+        "power": "152 bhp",
+        "torque": "254 Nm",
+        "trans": "auto"
+      },
+      "Kiger Turbo": {
+        "body": "suv",
+        "performance": false,
+        "engine": "999 cc Turbocharged",
+        "power": "99 bhp",
+        "torque": "152 Nm",
+        "trans": "auto",
+        "drivetrain": "FWD",
+        "zero_to_sixty": "0-100 km/h 10.72 s (claimed)",
+        "range": "730 km"
+      },
+      "Arkana RS-Line": { "body": "suv", "performance": true },
+      "Austral": { "body": "suv", "performance": false },
+      "Alpine A110": { 
+        "body": "coupe", 
+        "performance": true,
+        "power": "292 hp",
+        "zero_to_sixty": "4.2 s"
+      }
+    },
+    "Suzuki": {
+      "Swift Sport": { 
+        "body": "hatch", 
+        "performance": true,
+        "power": "127 hp"
+      },
+      "Jimny 5-Door": { "body": "suv", "performance": false },
+      "Grand Vitara Turbo": { "body": "suv", "performance": false },
+      "Fronx Turbo": { "body": "suv", "performance": false },
+      "Ignis Sport": { "body": "hatch", "performance": true },
+      "Hayabusa Edition": { "body": "coupe", "performance": true }
+    },
+    "Tata": {
+      "Nexon EV Max": {
+        "body": "suv",
+        "trans": "ev",
+        "performance": false,
+        "power": "105 kW (143 PS)",
+        "range": "437 km (ARAI)",
+        "zero_to_sixty": "under 9 s"
+      },
+      "Harrier Dark Edition": {
+        "body": "suv",
+        "performance": false,
+        "engine": "2.0L diesel",
+        "power": "170 bhp",
+        "torque": "350 Nm",
+        "trans": "auto",
+        "drivetrain": "FWD"
+      },
+      "Safari Red Dark": {
+        "body": "suv",
+        "performance": false,
+        "engine": "1956 cc Diesel",
+        "power": "168 bhp",
+        "torque": "350 Nm",
+        "trans": "auto",
+        "drivetrain": "FWD"
+      },
+      "Punch.ev": {
+        "body": "suv",
+        "trans": "ev",
+        "performance": false,
+        "power": "90 kW",
+        "range": "365 km"
+      },
+      "Altroz iTurbo": {
+        "body": "hatch",
+        "performance": true,
+        "engine": "1199 cc Turbocharged",
+        "power": "108 bhp",
+        "torque": "140 Nm",
+        "trans": "manual",
+        "drivetrain": "FWD"
+      },
+      "Curvv EV": {
+        "body": "suv",
+        "trans": "ev",
+        "performance": false,
+        "power": "110 kW",
+        "range": "500 km (est.)"
+      }
+    },
+    "Mahindra": {
+      "XUV700 AX7L": {
+        "body": "suv",
+        "performance": false,
+        "engine": "1997 cc Turbocharged Diesel / 1997 cc Petrol",
+        "power": "182-197 bhp",
+        "torque": "380-450 Nm",
+        "trans": "auto",
+        "drivetrain": "AWD"
+      },
+      "Scorpio-N Z8L": {
+        "body": "suv",
+        "performance": false,
+        "engine": "1997 cc Turbocharged Diesel",
+        "power": "172 bhp",
+        "torque": "370 Nm",
+        "trans": "auto"
+      },
+      "Thar Roxx": {
+        "body": "suv",
+        "performance": false,
+        "engine": "1997 cc Turbocharged Diesel",
+        "power": "150 bhp",
+        "torque": "320 Nm",
+        "trans": "manual/auto",
+        "drivetrain": "4WD"
+      },
+      "XUV400 EV": {
+        "body": "suv",
+        "trans": "ev",
+        "performance": false,
+        "power": "110 kW",
+        "range": "456 km"
+      }
+    },
+    "Toyota": {
+      "GR Supra": {
+        "body": "coupe",
+        "trans": "auto",
+        "performance": true,
+        "engine": "3.0L I6 Turbo",
+        "power": "382 hp",
+        "drivetrain": "RWD",
+        "zero_to_sixty": "3.9 s"
+      },
+      "GR Corolla": {
+        "body": "hatch",
+        "trans": "manual",
+        "performance": true,
+        "engine": "1.6L I3 Turbo",
+        "power": "300 hp",
+        "drivetrain": "AWD",
+        "zero_to_sixty": "4.9 s"
+      },
+      "GR86": {
+        "body": "coupe",
+        "trans": "manual",
+        "performance": true,
+        "engine": "2.4L Flat-4",
+        "power": "228 hp",
+        "drivetrain": "RWD",
+        "zero_to_sixty": "6.1 s"
+      },
+      "Land Cruiser 300": {
+        "body": "suv",
+        "performance": false,
+        "power": "409 hp"
+      },
+      "Fortuner GR-S": {
+        "body": "suv",
+        "performance": true,
+        "engine": "2755 cc Diesel",
+        "power": "201 bhp",
+        "torque": "500 Nm",
+        "drivetrain": "4WD"
+      }
+    },
+    "Nissan": {
+      "GT-R Nismo": {
+        "body": "coupe",
+        "trans": "auto",
+        "performance": true,
+        "engine": "3.8L V6 Twin-Turbo",
+        "power": "600 hp",
+        "drivetrain": "AWD",
+        "zero_to_sixty": "2.5 s"
+      },
+      "Z Performance": {
+        "body": "coupe",
+        "trans": "manual",
+        "performance": true,
+        "engine": "3.0L V6 Twin-Turbo",
+        "power": "400 hp",
+        "drivetrain": "RWD",
+        "zero_to_sixty": "4.0 s"
+      },
+      "Magnite Kuro": {
+        "body": "suv",
+        "performance": false,
+        "engine": "999 cc Turbocharged",
+        "power": "99 bhp",
+        "torque": "152 Nm",
+        "trans": "auto",
+        "drivetrain": "FWD",
+        "zero_to_sixty": "0-100 km/h 11.14 s (claimed)",
+        "range": "716 km"
+      },
+      "Ariya Nismo": { "body": "suv", "trans": "ev", "performance": true }
+    },
+    "Honda": {
+      "Civic Type R": {
+        "body": "hatch",
+        "trans": "manual",
+        "performance": true,
+        "drivetrain": "FWD",
+        "engine": "2.0L turbo",
+        "power": "315 hp",
+        "zero_to_sixty": "4.9 s"
+      },
+      "NSX Type S": { 
+        "body": "coupe", 
+        "performance": true,
+        "power": "600 hp",
+        "zero_to_sixty": "2.7 s"
+      },
+      "S2000": { 
+        "body": "coupe", 
+        "performance": true,
+        "power": "237 hp",
+        "trans": "manual"
+      },
+      "City VTEC": {
+        "body": "sedan",
+        "performance": false,
+        "engine": "1498 cc",
+        "power": "119 bhp",
+        "torque": "145 Nm",
+        "trans": "auto",
+        "drivetrain": "FWD",
+        "range": "736 km"
+      },
+      "Elevate": {
+        "body": "suv",
+        "performance": false,
+        "engine": "1498 cc",
+        "power": "119 bhp",
+        "torque": "145 Nm",
+        "trans": "auto",
+        "drivetrain": "FWD",
+        "range": "677 km"
+      }
+    },
+    "Ford": {
+      "Mustang Dark Horse": { 
+        "body": "coupe", 
+        "performance": true,
+        "power": "500 hp",
+        "drivetrain": "RWD"
+      },
+      "Mustang Shelby GT500": { 
+        "body": "coupe", 
+        "performance": true,
+        "power": "760 hp",
+        "zero_to_sixty": "3.3 s"
+      },
+      "F-150 Raptor R": { 
+        "body": "suv", 
+        "performance": true,
+        "power": "700 hp"
+      },
+      "Focus RS": { 
+        "body": "hatch", 
+        "performance": true,
+        "power": "350 hp",
+        "drivetrain": "AWD"
+      }
+    },
+    "Chevrolet": {
+      "Corvette Z06": { 
+        "body": "coupe", 
+        "performance": true,
+        "power": "670 hp",
+        "zero_to_sixty": "2.6 s"
+      },
+      "Corvette E-Ray": { 
+        "body": "coupe", 
+        "performance": true,
+        "power": "655 hp",
+        "drivetrain": "AWD",
+        "zero_to_sixty": "2.5 s"
+      },
+      "Camaro ZL1 1LE": { 
+        "body": "coupe", 
+        "performance": true,
+        "power": "650 hp"
+      }
+    },
+    "Dodge": {
+      "Challenger Demon 170": { 
+        "body": "coupe", 
+        "performance": true,
+        "power": "1,025 hp",
+        "zero_to_sixty": "1.66 s"
+      },
+      "Charger Hellcat Redeye": { 
+        "body": "sedan", 
+        "performance": true,
+        "power": "797 hp"
+      }
+    },
+    "Porsche": {
+      "911 GT3 RS": {
+        "body": "coupe",
+        "trans": "auto",
+        "performance": true,
+        "power": "518 hp",
+        "drivetrain": "RWD",
+        "zero_to_sixty": "3.0 s"
+      },
+      "911 Turbo S": {
+        "body": "coupe",
+        "trans": "auto",
+        "performance": true,
+        "power": "701 hp",
+        "drivetrain": "AWD",
+        "zero_to_sixty": "2.4 s"
+      },
+      "718 Cayman GT4": {
+        "body": "coupe",
+        "trans": "manual",
+        "performance": true,
+        "engine": "4.0L NA flat-6",
+        "power": "414 hp",
+        "drivetrain": "RWD",
+        "zero_to_sixty": "4.2 s"
+      },
+      "Taycan Turbo S": {
+        "body": "sedan",
+        "trans": "ev",
+        "performance": true,
+        "power": "938 hp (overboost)",
+        "drivetrain": "AWD",
+        "zero_to_sixty": "2.3 s"
+      },
+      "Macan GTS": {
+        "body": "suv",
+        "performance": true,
+        "power": "434 hp",
+        "zero_to_sixty": "4.3 s"
+      },
+      "Panamera Turbo": {
+        "body": "sedan",
+        "performance": true,
+        "power": "620 hp",
+        "zero_to_sixty": "2.9 s"
+      }
+    },
+    "BMW": {
+      "M2 Competition": {
+        "body": "coupe",
+        "performance": true,
+        "power": "405 hp",
+        "zero_to_sixty": "4.0 s"
+      },
+      "M3 Competition": {
+        "body": "sedan",
+        "performance": true,
+        "power": "503 hp",
+        "zero_to_sixty": "3.8 s"
+      },
+      "M4 CSL": {
+        "body": "coupe",
+        "performance": true,
+        "power": "550 hp",
+        "zero_to_sixty": "3.7 s (0-100 km/h)"
+      },
+      "M5 CS": {
+        "body": "sedan",
+        "performance": true,
+        "power": "627 hp",
+        "zero_to_sixty": "2.9 s"
+      },
+      "M8 Competition": {
+        "body": "coupe",
+        "performance": true,
+        "power": "617 hp",
+        "zero_to_sixty": "3.0 s"
+      },
+      "X5 M": {
+        "body": "suv",
+        "performance": true,
+        "power": "617 hp",
+        "zero_to_sixty": "3.7 s"
+      },
+      "i4 M50": {
+        "body": "sedan",
+        "trans": "ev",
+        "performance": true,
+        "power": "536 hp",
+        "zero_to_sixty": "3.7 s",
+        "range": "227-269 mi (est.)"
+      }
+    },
+    "Audi": {
+      "RS3": {
+        "body": "sedan",
+        "performance": true,
+        "power": "394 hp",
+        "zero_to_sixty": "3.6 s"
+      },
+      "RS6 Avant": {
+        "body": "hatch",
+        "performance": true,
+        "power": "621 hp",
+        "zero_to_sixty": "3.3 s"
+      },
+      "RS7": {
+        "body": "hatch",
+        "performance": true,
+        "power": "621 hp",
+        "zero_to_sixty": "3.3 s"
+      },
+      "R8 V10 Performance": {
+        "body": "coupe",
+        "performance": true,
+        "power": "456 kW / 620 PS",
+        "zero_to_sixty": "3.1 s (0-100 km/h)"
+      },
+      "RS E-Tron GT": {
+        "body": "sedan",
+        "trans": "ev",
+        "performance": true,
+        "power": "630 kW / 856 PS",
+        "zero_to_sixty": "2.8 s (0-100 km/h)"
+      },
+      "SQ5": {
+        "body": "suv",
+        "performance": true,
+        "power": "362 hp",
+        "zero_to_sixty": "4.6 s"
+      }
+    },
+    "Mercedes-AMG": {
+      "C63 S": {
+        "body": "sedan",
+        "performance": true,
+        "power": "503 hp",
+        "zero_to_sixty": "3.7 s"
+      },
+      "E63 S": {
+        "body": "sedan",
+        "performance": true,
+        "power": "603 hp",
+        "zero_to_sixty": "3.3 s"
+      },
+      "S63 E-Performance": {
+        "body": "sedan",
+        "performance": true,
+        "power": "791 hp",
+        "zero_to_sixty": "3.2 s"
+      },
+      "GT Black Series": {
+        "body": "coupe",
+        "performance": true,
+        "power": "730 hp",
+        "zero_to_sixty": "3.2 s (0-100 km/h)"
+      },
+      "G63": {
+        "body": "suv",
+        "performance": true,
+        "power": "577 hp",
+        "zero_to_sixty": "4.2 s"
+      },
+      "SL63": {
+        "body": "coupe",
+        "performance": true,
+        "power": "805 hp",
+        "zero_to_sixty": "2.8 s"
+      }
+    },
+    "Tesla": {
+      "Model S Plaid": {
+        "body": "sedan",
+        "trans": "ev",
+        "performance": true,
+        "drivetrain": "Tri Motor AWD",
+        "power": "1,020 hp",
+        "zero_to_sixty": "1.99 s",
+        "range": "368 mi (EPA est.)"
+      },
+      "Model S": {
+        "body": "sedan",
+        "trans": "ev",
+        "performance": false,
+        "drivetrain": "Dual Motor AWD",
+        "power": "670 hp",
+        "zero_to_sixty": "3.1 s",
+        "range": "410 mi (EPA est.)"
+      },
+      "Model 3 Performance": {
+        "body": "sedan",
+        "trans": "ev",
+        "performance": true,
+        "drivetrain": "Dual Motor AWD",
+        "power": "480 hp",
+        "zero_to_sixty": "2.9 s",
+        "range": "309 mi (EPA est.)"
+      },
+      "Model X Plaid": {
+        "body": "suv",
+        "trans": "ev",
+        "performance": true,
+        "drivetrain": "Tri Motor AWD",
+        "power": "1,020 hp",
+        "zero_to_sixty": "2.5 s",
+        "range": "335 mi (EPA est.)"
+      },
+      "Model X": {
+        "body": "suv",
+        "trans": "ev",
+        "performance": false,
+        "drivetrain": "Dual Motor AWD",
+        "power": "670 hp",
+        "zero_to_sixty": "3.8 s",
+        "range": "352 mi (EPA est.)"
+      },
+      "Roadster": {
+        "body": "coupe",
+        "trans": "ev",
+        "performance": true,
+        "drivetrain": "AWD",
+        "zero_to_sixty": "1.9 s",
+        "range": "620 mi"
+      },
+      "Model Y Performance": {
+        "body": "suv",
+        "trans": "ev",
+        "performance": true,
+        "power": "480 hp",
+        "zero_to_sixty": "3.5 s",
+        "range": "303 mi"
+      }
+    },
+    "Mazda": {
+      "MX-5 Miata": {
+        "body": "coupe",
+        "trans": "manual",
+        "performance": true,
+        "power": "181 hp",
+        "drivetrain": "RWD"
+      },
+      "RX-7 FD": {
+        "body": "coupe",
+        "trans": "manual",
+        "performance": true,
+        "power": "255 hp",
+        "drivetrain": "RWD"
+      }
+    },
+    "Subaru": {
+      "WRX STI": {
+        "body": "sedan",
+        "trans": "manual",
+        "performance": true,
+        "power": "310 hp",
+        "drivetrain": "AWD"
+      },
+      "BRZ": {
+        "body": "coupe",
+        "trans": "manual",
+        "performance": true,
+        "power": "228 hp",
+        "drivetrain": "RWD"
+      }
+    },
+    "Alfa Romeo": {
+      "Giulia Quadrifoglio": {
+        "body": "sedan",
+        "trans": "auto",
+        "performance": true,
+        "power": "505 hp",
+        "zero_to_sixty": "3.8 s"
+      }
+    }
+  }
+}
